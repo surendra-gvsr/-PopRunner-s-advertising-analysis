@@ -72,12 +72,7 @@ sqldf("
 # Query 5: Display how many consumers are female and male (column alias: gender_count), 
 #          also show what is the average age (column alias: average_age) of consumers by gender
 
-# SELECT COUNT(*) AS <new column name>,
-#        AVG(<column name>) AS <new column name>,
-#        <grouping variable 1> FROM <table name> 
-# GROUP BY <grouping variable 1>
 
-# Hint: you will GROUP BY gender
 
 sqldf("
     SELECT gender, 
@@ -95,14 +90,7 @@ sqldf("
 # Query 6: How many consumers are there in each loyalty status group (column alias: loyalty_count), 
 # what is the average age (column alias: average_age) of consumers in each group
 
-# Syntax: 
 
-# SELECT COUNT(*) AS <new column name>,
-#        AVG(<column name>) AS <new column name>,
-#        <grouping variable 1> FROM <table name> 
-# GROUP BY <grouping variable 1>
-
-# Hint: you will GROUP BY loyalty_status
 
 sqldf("
     SELECT loyalty_status, 
@@ -123,14 +111,7 @@ sqldf("
 # continue adding discount code to their card (column alias: discount_code) 
 # opposed to consumers who do not receive a pop_up message
 
-# Syntax: 
 
-# SELECT COUNT(*) AS <new column name>,
-#        <grouping variable 1> AS <new column name>, 
-#        <grouping variable 2> AS <new column name> FROM <table name> 
-# GROUP BY <grouping variable 1>, <grouping variable 2>
-
-# Hint: you will use two grouping variable: GROUP BY pop_up, saved_discount
 
 sqldf("
     SELECT COUNT(*) AS consumer_count, pop_up AS pop_up, 
@@ -147,11 +128,7 @@ sqldf("
 # This is purchase table
 
 # Query 8: On an average, how much did consumers spend on their 
-# total sales (column alias: total_sales) during their online purchase
 
-# Syntax:
-
-# SELECT AVG(<column name>) AS <new column name> FROM <table name>
 
 sqldf("
       SELECT AVG(sales_amount_total) AS total_sales
@@ -166,11 +143,7 @@ sqldf("
 
 # Query 9: How many consumers (column alias: consumer_count) of the total opened the email blast
 
-# Syntax:
 
-# SELECT COUNT(*) AS <new column name>,
-#       <group variable 1> from <table name> 
-#   GROUP BY <group variable 1>
 
 
 sqldf("
@@ -188,18 +161,7 @@ sqldf("
 # Query 10: Was the pop-up advertisement successful? Mention yes/ no. 
 # In other words, did consumers who received a pop_up message buy more
 
-# Syntax:
 
-# SELECT SUM(<column name>) AS <new column name>,
-#        AVG(<column name>) AS <new column name>, 
-#        <grouping variable 1> from <table 1>, <table 2>
-#      WHERE <table 1>.<key column>=<table 2>.<key column> 
-#      GROUP BY <grouping variable 1>
-
-# Hint: you will calculate SUM of sales_amount_total (column alias: sum_sales)
-# and AVG of sales_amount_total (column alias: avg_sales)
-# GROUP BY pop_up
-# Inner join on purchase and pop_up table on consumer_id
 
 sqldf("
     SELECT p.pop_up, 
@@ -220,16 +182,7 @@ sqldf("
 
 # Query 11.1) Find the consumer_id who spent the least from the purchase table
 
-# you can use ORDER BY and LIMIT clause together
 
-# Syntax: 
-
-# SELECT <column name> FROM <table name>
-# ORDER BY <column name> LIMIT 1)
-
-# Note: Here I am expecting details of only one consumer with minimum purchase. 
-# Therefore, LIMIT 1. There are many consumers with sales_amount_total = 0, 
-# however, you need information of any one for your second part of the project.
 
 sqldf("
       SELECT consumer_id 
@@ -256,10 +209,7 @@ sqldf("
 
 # Query 11.4) Replace ? with the inner query
 
-# Syntax:
 
-# SELECT <column name 1>, <column name 2> FROM <table name> WHERE consumer_id = 
-#      (inner query from Query 11.1)
 
 
 sqldf("
@@ -284,18 +234,7 @@ sqldf("
 # Query 12: Was the email blast successful? Mention yes/ no. 
 # In other words, did consumers who opened the email blast buy more
 
-# Syntax:
 
-# SELECT SUM(<column name>) AS <new column name>,
-#        AVG(<column name>) AS <new column name>, 
-#        <grouping variable 1> from <table 1>, <table 2>
-#      WHERE <table 1>.<key column>=<table 2>.<key column> 
-#      GROUP BY <grouping variable 1>
-
-# Hint: you will calculate SUM of sales_amount_total (column alias: sum_sales) 
-# and AVG of sales_amount_total (column alias: avg_sales)
-# GROUP BY opened_email
-# Inner join on purchase and email table on consumer_id
 
 sqldf("
       SELECT e.opened_email, 
@@ -319,12 +258,7 @@ sqldf("
 
 # Query 13.1) Find the consumer_id who spent the most from the purchase table
 
-# you can use ORDER BY and LIMIT clause together
 
-# Syntax: 
-
-# SELECT <column name> FROM <table name>
-# ORDER BY <column name> DESC LIMIT 1)
 
 sqldf("
       SELECT  consumer_id 
@@ -351,10 +285,7 @@ sqldf("
 
 # Query 13.4) Replace ? with the inner query
 
-# Syntax:
 
-# SELECT <column name 1>, <column name 2> FROM <table name> WHERE consumer_id IN 
-#      (inner query from Query 13.1)
 
 
 sqldf("
@@ -375,7 +306,5 @@ sqldf("
 
 # Interpret your output in simple English (1-2 lines):
 #The output indicates that the consumer who spent the most during online shopping did open the email blast, as the opened_email value for this consumer is 1.
-######################################################################################################
-# Best Luck!
-######################################################################################################
+
 
