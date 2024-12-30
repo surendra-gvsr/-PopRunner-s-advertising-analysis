@@ -1,16 +1,7 @@
-################################################################################
-##                          Class Project                                     ##
-################################################################################
 
-# This class project is to test your knowledge of SELECT statement
-
-################################################################################
-##                                  PopRunner caselet                         ##
-################################################################################
 
 # This script is based on the PopRunner data - PopRunner is an online retailer
 # Use the caselet and data (consumer.csv, pop_up.csv, purchase.csv, email.csv) 
-# on D2L to answer questions below
 # In this script, we will use SQL to do descriptive statistics
 # Think about the managerial implications as you go along
 
@@ -23,7 +14,7 @@ library(sqldf)
 
 # set your working directory and use read.csv() to read files
 
-setwd("D:/03-Depaul Assignments/02-DBMS/Dataset")
+
 
 consumer<-read.csv("consumer.csv",header=TRUE)
 pop_up<- read.csv("pop_up.csv",header=TRUE)
